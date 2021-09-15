@@ -19,7 +19,19 @@ AWESOMENESS = [
 def start_here():
     """Display homepage."""
 
-    return "Hi! This is the home page."
+    return """
+    <!doctype html>
+    <html>
+        <head>
+            <title>Home Page</title>
+            <link rel="stylesheet" href="static/madlibs.css">
+        </head>
+
+        <body>
+        <h1>Hi! This is the home page.</h1>
+        <p><a href="/hello">Say Hello</a></p>
+        </body>
+    </html>"""
 
 
 @app.route('/hello')
@@ -43,12 +55,13 @@ def greet_person():
 
 @app.route('/game')
 def show_madlib_form():
-    # player = request.args.get("person")
+
     wants_to_play = request.args.get("game")
 
-    if wants_to_play == "yes":
+    if wants_to_play == 'yes':
         return render_template("game.html")
-    else:
+
+    elif wants_to_play == 'no':
         return render_template("goodbye.html")
 
 @app.route('/madlib')
@@ -56,10 +69,19 @@ def show_madlib():
     
     color = request.args.get("color")
     person = request.args.get("person")
+    month = request.args.get("month")
     noun = request.args.get("noun")
-    adj = request.args.get("adjective")
+    adjective = request.args.get("adjective")
+    adjective2 = request.args.get("adjective2")
+    adverb = request.args.get("adverb")
+    verb = request.args.get("verb")
+    noun2 = request.args.get("noun2")
+    ing_verb = request.args.get("ing_verb")
+    verb2 = request.args.get("verb2")
 
-    return render_template("madlib.html", color = color, person = person, noun = noun, adj = adj)
+    return render_template("madlib_2.html", color = color, person = person, month=month, noun = noun, 
+    adjective = adjective, adjective2=adjective2, adverb=adverb,
+    verb = verb, noun2=noun2, ing_verb = ing_verb, verb2 = verb2)
 
 
 if __name__ == '__main__':

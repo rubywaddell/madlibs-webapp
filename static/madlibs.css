@@ -1,0 +1,22 @@
+h1 {
+    font-family: 'Lucida Sans';
+    color: #713c9c;
+}
+
+h3 {
+    font-family: 'Lucida Sans';
+    color: teal;
+}
+
+p {
+    font-family: Arial;
+    color:hsl(182, 91%, 32%);
+}
+
+a {
+    color: palevioletred;
+}
+
+/* body {
+    background-color: cornsilk;
+} */
